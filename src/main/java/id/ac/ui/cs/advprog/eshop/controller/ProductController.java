@@ -14,18 +14,18 @@ public class ProductController {
 
     public String createProductPage(Model model) {
         Product product = new Product();
-        model.addAllAttributes("product", product);
+        model.addAttribute("product", product);
         return "createProduct";
     }
 
-    public String createProductPost(Product product, Model) {
+    public String createProductPost(Product product, Model model) {
         service.create(product);
         return "redirect:list";
     }
 
     public String productListPage(Model model) {
         List<Product> allProducts = service.findAll();
-        model.addAllAttributes("products", allProducts);
+        model.addAttribute("products", allProducts);
         return "productList";
     }
 }
