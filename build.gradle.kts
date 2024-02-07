@@ -2,13 +2,13 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.2.2"
 	id("io.spring.dependency-management") version "1.1.4"
+    kotlin("jvm")
 }
 
 group = "id.ac.ui.cs.advprog"
 version = "0.0.1-SNAPSHOT"
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
 }
 
 configurations {
@@ -29,8 +29,12 @@ dependencies {
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
 }
