@@ -1,10 +1,11 @@
 # tutorial-1
 
-SHeryl Ivana W
+Sheryl Ivana W
 2206824943
 Kelas: C
 
-
+<details>
+<summary>Tutorial 1</summary>
 **Reflection 1**  
 You already implemented two new features using Spring Boot. Check again your source code and evaluate the coding standards that you have learned in this module. Write clean code principles and secure coding practices that have been applied to your code.  If you find any mistake in your source code, please explain how to improve your code. **Please write your reflection inside the repository's README.md file.**  
 
@@ -44,3 +45,19 @@ I think the code of the new functional test suite is not very clean. It has some
      - The code has too many comments. Comments are useful to explain the intent or purpose of the code, but they should not be used to describe what the code does. The code itself should be clear and self-explanatory. Too many comments can clutter the code and make it harder to read. They can also become outdated and misleading if the code changes. A possible improvement is to remove unnecessary comments and use meaningful names for variables, functions, and classes instead. 
      - The code has long and complex functions. Functions should be small and do only one thing. Long and complex functions are hard to understand, test, and debug. They can also introduce side effects and dependencies that make the code less modular and reusable. A possible improvement is to break down long and complex functions into smaller and simpler ones, and use descriptive names for them.
      - The code has magic numbers and strings. Magic numbers and strings are literal values that are used directly in the code without any explanation. They can make the code hard to understand, modify, and maintain. They can also introduce errors and inconsistencies if they are used in multiple places. A possible improvement is to replace magic numbers and strings with constants or variables, and give them meaningful names
+
+</details>
+<details>
+<summary>Tutorial 2</summary>
+Masalah Kualitas Kode yang Diperbaiki:
+
+Masalah "The instance method name 'HomePage' doesn't match '[a-z][a-zA-Z0-9]*'" oleh PMD:
+Solusi: Menggunakan gaya penulisan camel case untuk nama metode.
+Masalah "Unnecessary modifier 'public' on method '...': the method is declared in an interface type" oleh PMD:
+Solusi: Menghapus modifier public pada metode dalam antarmuka (interface).
+Masalah "This utility class has a non-private constructor" oleh PMD:
+Solusi: Masalah ini diabaikan karena jika kita menambahkan konstruktor private di kelas EshopApplication, program tidak akan dapat dijalankan (false-positive).
+Implementasi CI/CD dalam Workflows (GitHub)/Pipelines (GitLab):
+Implementasi saat ini sudah memenuhi definisi Continuous Integration dan Continuous Deployment. Proyek ini telah menerapkan CI yang mencakup fase Code dan Test. CI diwakili oleh file ci.yml yang otomatis menguji proses setiap kali ada pull, push, atau merge ke repositori. Untuk Deployment, Koyeb juga telah mengimplementasikan CI/CD untuk otomatisasi proses deployment setiap kali ada pull, push, atau merge dari repositori. Ini mencakup fase Review dan Operasional dalam Continuous Delivery/Deployment.
+
+</details>
