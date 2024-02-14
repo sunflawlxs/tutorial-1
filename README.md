@@ -2,7 +2,7 @@
 
 Sheryl Ivana W
 2206824943
-Kelas: C
+Kelas: A
 
 <details>
 <summary>Tutorial 1</summary>
