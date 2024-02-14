@@ -60,17 +60,4 @@ public class ProductController {
         return "redirect:../list";
     }
 
-<<<<<<< HEAD
 }
-=======
-    @PostMapping("/create")
-    public String createProductPost(@ModelAttribute Product product, Model model) {
-        service.create(product);
-        return "redirect:list";
-    }
-
-
-
-
-}
->>>>>>> 74025efaecfb06862703d08552325d5b3bff548a
