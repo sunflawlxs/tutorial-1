@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class HomepageController {
+public class HomePageController {
+
     @GetMapping("/")
     public String homepage() {
-        return "homepage";
+        return "homePage";
     }
 }
