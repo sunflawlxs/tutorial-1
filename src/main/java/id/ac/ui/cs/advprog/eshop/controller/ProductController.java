@@ -1,37 +1,46 @@
 package id.ac.ui.cs.advprog.eshop.controller;
-import id.ac.ui.cs.advprog.eshop.model.Car;
-import id.ac.ui.cs.advprog.eshop.model.Product;
-import id.ac.ui.cs.advprog.eshop.service.ProductService;
-import id.ac.ui.cs.advprog.eshop.service.CarServiceImpl;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import id.ac.ui.cs.advprog.eshop.model.Product;
+import id.ac.ui.cs.advprog.eshop.service.ProductService;
 
 @Controller
 @RequestMapping("/product")
 public class ProductController {
+
     @Autowired
     private ProductService service;
 
     @GetMapping("/create")
-    public String createProductPage(Model model){
+    public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
         return "createProduct";
-
     }
+
     @PostMapping("/create")
-    public String createProductPost(Product product, Model model){
-        service.create(product);
+    public String createProduct(@ModelAttribute Product product, Model model) {
+        service.createProduct(product);
         return "redirect:list";
     }
+
     @GetMapping("/list")
-    public String productListPage(Model model){
+    public String productListPage(Model model) {
         List<Product> allProducts = service.findAll();
         model.addAttribute("products", allProducts);
-        return "productList";
+        return "listProduct";
     }
 
     @GetMapping("/edit/{id}")
@@ -41,50 +50,17 @@ public class ProductController {
         return "editProduct";
     }
 
-    @PostMapping("/edit")
-    public String editProductPost(@ModelAttribute Product product, Model model){
+    @PutMapping("/edit/{id}")
+    public String editProduct(@PathVariable("id") String id, @ModelAttribute Product product, Model model) {
+        // Set the ID to the edited product, because every new instance product will be assigned a new UUID
+        product.setProductId(id);
         service.editProduct(product);
-        return "redirect:list";
+        return "redirect:../list";
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteProduct(@PathVariable("id") String id, Model model) {
         service.deleteProduct(id);
         return "redirect:../list";
-    }
-}
-
-@Controller
-@RequestMapping("/car")
-class CarController extends ProductController{
-    private CarServiceImpl carservice;
-    @GetMapping("/createCar")
-    public String createCarPage(Model model){
-        Car car = new Car();
-        model.addAttribute("car", car);
-        return "createCar";
-    }
-    @PostMapping("/createCar")
-    public String createCarPost(@ModelAttribute Car car, Model model){
-        carservice.create(car);
-        return "redirect:ListCar";
-    }
-    @GetMapping("/listCar")
-    public String carListPage(Model model){
-        List<Car> allCars = carservice.findAll();
-        model.addAttribute("cars", allCars);
-        return "carList";
-    }
-    @GetMapping("/editCar/{carId}")
-    public String editCarPage(@PathVariable String carId, Model model) {
-        Car car =  carservice.findById(carId);
-        model.addAttribute("car", car);
-        return "editCar";
-    }
-    @PostMapping("/editCar")
-    public String editCarPost(@ModelAttribute Car car, Model model){
-        System.out.println(car.getCarId());
-        carservice.update(car.getCarId(), car);
-        return "redirect:ListCar";
     }
 }
