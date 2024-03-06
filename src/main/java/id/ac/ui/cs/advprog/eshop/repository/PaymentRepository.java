@@ -12,7 +12,9 @@ public class PaymentRepository {
     private Map<String, Payment> paymentData = new HashMap<>();
 
     public Payment save(Payment payment) {
-        paymentData.put(UUID.randomUUID().toString(), payment);
+        String id = UUID.randomUUID().toString();
+        payment.setId(id);
+        paymentData.put(id, payment);
         return payment;
     }
     public Payment findById(String id) {
