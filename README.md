@@ -150,3 +150,18 @@ Secara ringkas, mengabaikan prinsip SOLID dapat menghasilkan basis kode yang sul
 
 
 </details>
+
+<details>
+<summary>Tutorial 4</summary>
+Ya, alur TDD ini telah membantu saya mengarahkan pengembangan program dengan lebih baik. Walaupun demikian, saya masih menghadapi tantangan, terutama ketika menciptakan uji coba, terutama dalam kaitannya dengan Mock. Saya merasa perlu berlatih lebih banyak agar dapat menguasai TDD ini.
+
+Dalam hal kecepatan, uji coba saya telah mematuhi prinsip ini. Saya berhasil memisahkan antara unitTest dan functionalTest, serta mengimplementasikan stubs untuk hasil yang telah ditentukan dari panggilan fungsi, sehingga uji coba tidak bergantung pada uji coba lainnya.
+
+Ketika berbicara tentang isolasi, uji coba saya juga telah mematuhi prinsip ini. Saya menggunakan objek palsu (mock objects) dalam uji coba saya dan menerapkan setUp untuk mencegah duplikasi objek.
+
+Dalam hal keterulangan, uji coba saya telah mematuhi prinsip ini. Dengan memenuhi prinsip isolasi, data yang dibutuhkan dalam uji coba tetap sama setiap kali pengujian dilakukan.
+
+Meskipun demikian, uji coba saya belum sepenuhnya mematuhi prinsip validasi diri. Meskipun menggunakan pernyataan assert untuk memvalidasi hasil, masih ada banyak uji coba yang memiliki banyak assert di dalamnya. Langkah selanjutnya adalah memisahkan setiap assert ke dalam uji coba yang berbeda.
+
+Dalam hal kecukupan, uji coba saya sudah mematuhi prinsip ini. Uji coba saya mencakup semua jalur yang tidak menguntungkan maupun menguntungkan (happy dan unhappy paths), serta semua kemungkinan kesalahan.
+</details>
