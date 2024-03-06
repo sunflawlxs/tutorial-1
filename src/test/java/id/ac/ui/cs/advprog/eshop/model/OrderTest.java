@@ -12,6 +12,7 @@ import id.ac.ui.cs.advprog.eshop.enums.OrderStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+@SuppressWarnings("unused")
 class OrderTest {
     private List<Product> products;
 
